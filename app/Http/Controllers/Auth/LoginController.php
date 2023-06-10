@@ -1,11 +1,14 @@
 <?php
-
+  
 namespace App\Http\Controllers\Auth;
-
+  
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Illuminate\Http\Request;
+use Auth;
+use App\Models\User;
+   
 class LoginController extends Controller
 {
     /*
@@ -18,16 +21,16 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+  
     use AuthenticatesUsers;
-
+  
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-
+   
     /**
      * Create a new controller instance.
      *
@@ -36,5 +39,34 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+  
+     /**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function login(Request $request)
+    {
+     $request->validate([
+      'email' => 'required',
+      'password' => 'required',
+     ]);
+
+     $credentials = $request->only('email', 'password');
+
+      if (Auth::attempt($credentials)) {
+       $user = User::where('email',$request->email)->first();
+       if($user->status === 0){
+        return redirect()->route('home');
+       }
+       else
+        {
+         return redirect()->back()->with('error','sorry user name or password invalid');
+        }
+       }
+
+      
+      return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
     }
 }
