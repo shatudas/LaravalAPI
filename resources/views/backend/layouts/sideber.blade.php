@@ -38,6 +38,28 @@
     </ul>
    </li>
 
+   <li class="nav-item">
+    <a href="{{($prefix=='/item')?'menu-open':''}}" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p>
+      Manage Item
+      <i class="fas fa-angle-left right"></i>
+     </p>
+    </a>
+
+    <ul class="nav nav-treeview">
+    
+     <li class="nav-item">
+      <a href="{{route('item.view')}}" class="nav-link {{($route=='item.views')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>View Item</p>
+      </a>
+     </li>
+
+    </ul>
+   </li>
+
+
   
 
   </ul>
