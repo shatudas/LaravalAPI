@@ -32,7 +32,7 @@ Route::prefix('user')->group(function()
 });
 
 
-//-------user---------//
+//-------Item---------//
 Route::prefix('item')->group(function()
 {
 	Route::get('/view',[ItemController::class,'view'])->name('item.view');
