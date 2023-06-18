@@ -33,7 +33,6 @@ class UserController extends Controller
 
   }
 
-
    public function edit($id){
   	$editdata=User::find($id);
   	return response()->json($editdata);

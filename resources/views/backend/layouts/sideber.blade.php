@@ -10,8 +10,8 @@
 
 
 
-   <li class="nav-item">
-    <a href="{{($prefix=='/user')?'menu-open':''}}" class="nav-link">
+   <li class="nav-item {{($prefix=='/user')?'menu-open':''}}">
+    <a href="" class="nav-link">
      <i class="nav-icon fas fa-copy"></i>
      <p>
       Manage User
@@ -38,8 +38,8 @@
     </ul>
    </li>
 
-   <li class="nav-item">
-    <a href="{{($prefix=='/item')?'menu-open':''}}" class="nav-link">
+   <li class="nav-item {{($prefix=='/item')?'menu-open':''}}">
+    <a href="" class="nav-link">
      <i class="nav-icon fas fa-copy"></i>
      <p>
       Manage Item
@@ -53,6 +53,28 @@
       <a href="{{route('item.view')}}" class="nav-link {{($route=='item.views')?'active':''}}">
        <i class="far fa-circle nav-icon"></i>
        <p>View Item</p>
+      </a>
+     </li>
+
+    </ul>
+   </li>
+
+
+   <li class="nav-item {{($prefix=='/category')?'menu-open':''}}">
+    <a href="" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p>
+      Manage Category
+      <i class="fas fa-angle-left right"></i>
+     </p>
+    </a>
+
+    <ul class="nav nav-treeview">
+    
+     <li class="nav-item">
+      <a href="{{route('category.view')}}" class="nav-link {{($route=='category.views')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>View Category</p>
       </a>
      </li>
 
