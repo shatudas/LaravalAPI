@@ -47,7 +47,7 @@ Route::prefix('item')->group(function()
 });
 
 
-//-------Item---------//
+//-------Category---------//
 Route::prefix('category')->group(function()
 {
 	Route::get('/view',[CategoryController::class,'view'])->name('category.view');

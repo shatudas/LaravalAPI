@@ -48,7 +48,7 @@ class CategoryController extends Controller
 
 
   public function update(Request $request,$id){
-    
+
     $this->validate($request,[
     'name'         =>'required',
     'item_id'      =>'required',
@@ -70,7 +70,7 @@ class CategoryController extends Controller
     category::find($id)->where('id',$id)->update(['status'=>1]);
     return redirect()->back();
    }
-    
+
 
   public function active($id)
    {
@@ -80,11 +80,11 @@ class CategoryController extends Controller
 
 
   public function delete ($id)
-   { 
+   {
     $data = category::find($id);
     $data->delete();
     return redirect()->route('category.view')->with('error','Data Delete Successfully');
-   } 
+   }
 
 
 

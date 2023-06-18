@@ -3,7 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
-use App\Http\Controllers\API\ItemController; 
+use App\Http\Controllers\API\ItemController;
+use App\Http\Controllers\API\CategoryController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -41,6 +42,21 @@ Route::prefix('item')->group(function()
 	Route::get('/active/{id}',[ItemController::class,'active']);
 	Route::get('/inactive/{id}',[ItemController::class,'inactive']);
 });
+
+
+//-------Category---------//
+Route::prefix('category')->group(function()
+{
+	Route::get('/view',[CategoryController::class,'view']);
+	Route::get('/add',[CategoryController::class,'add']);
+	Route::post('/store',[CategoryController::class,'store']);
+	Route::get('/edit/{id}',[CategoryController::class,'edit']);
+	Route::post('/update/{id}',[CategoryController::class,'update']);
+	Route::get('/delete/{id}',[CategoryController::class,'delete']);
+	Route::get('/active/{id}',[CategoryController::class,'active']);
+	Route::get('/inactive/{id}',[CategoryController::class,'inactive']);
+});
+
 
 
 
