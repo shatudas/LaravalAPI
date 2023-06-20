@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 
 Route::get('/', function () {
@@ -58,6 +59,21 @@ Route::prefix('category')->group(function()
 	Route::get('/delete/{id}',[CategoryController::class,'delete'])->name('category.delete');
 	Route::get('/active/{id}',[CategoryController::class,'active'])->name('category.active');
 	Route::get('/inactive/{id}',[CategoryController::class,'inactive'])->name('category.inactive');
+});
+
+
+
+//-------Category---------//
+Route::prefix('product')->group(function()
+{
+	Route::get('/view',[ProductController::class,'view'])->name('product.view');
+	Route::get('/add',[ProductController::class,'add'])->name('product.add');
+	Route::post('/store',[ProductController::class,'store'])->name('product.store');
+	Route::get('/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
+	Route::post('/update/{id}',[ProductController::class,'update'])->name('product.update');
+	Route::get('/delete/{id}',[ProductController::class,'delete'])->name('product.delete');
+	Route::get('/active/{id}',[ProductController::class,'active'])->name('product.active');
+	Route::get('/inactive/{id}',[ProductController::class,'inactive'])->name('product.inactive');
 });
 
 

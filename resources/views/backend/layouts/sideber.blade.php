@@ -82,6 +82,30 @@
    </li>
 
 
+
+
+   <li class="nav-item {{($prefix=='/product')?'menu-open':''}}">
+    <a href="" class="nav-link">
+     <i class="nav-icon fas fa-copy"></i>
+     <p>
+      Manage Product
+      <i class="fas fa-angle-left right"></i>
+     </p>
+    </a>
+
+    <ul class="nav nav-treeview">
+    
+     <li class="nav-item">
+      <a href="{{route('product.view')}}" class="nav-link {{($route=='product.views')?'active':''}}">
+       <i class="far fa-circle nav-icon"></i>
+       <p>View Product</p>
+      </a>
+     </li>
+
+    </ul>
+   </li>
+
+
   
 
   </ul>
