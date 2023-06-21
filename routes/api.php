@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\API\ItemController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\ProductController;
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
@@ -56,6 +57,22 @@ Route::prefix('category')->group(function()
 	Route::get('/active/{id}',[CategoryController::class,'active']);
 	Route::get('/inactive/{id}',[CategoryController::class,'inactive']);
 });
+
+
+
+//-------Category---------//
+Route::prefix('product')->group(function()
+{
+	Route::get('/view',[ProductController::class,'view']);
+	Route::get('/add',[ProductController::class,'add']);
+	Route::post('/store',[ProductController::class,'store']);
+	Route::get('/edit/{id}',[ProductController::class,'edit']);
+	Route::post('/update/{id}',[ProductController::class,'update']);
+	Route::get('/delete/{id}',[ProductController::class,'delete']);
+	Route::get('/active/{id}',[ProductController::class,'active']);
+	Route::get('/inactive/{id}',[ProductController::class,'inactive']);
+});
+
 
 
 
